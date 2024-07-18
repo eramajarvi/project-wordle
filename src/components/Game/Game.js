@@ -13,11 +13,22 @@ console.info({ answer });
 
 function Game() {
   const [guess, setGuess] = React.useState("");
+  const [guessesList, setGuessesList] = React.useState([]);
 
+  // Handles what to do whit the guess entered from the GuessForm component
   function handleSubmit(event) {
     event.preventDefault();
     console.info({ guess });
     setGuess("");
+
+    // Create the new guess received and assigns it an ID
+    const newGuess = {
+      guess,
+      guessID: crypto.randomUUID(),
+    };
+
+    const nextGuess = [...guessesList, newGuess];
+    setGuessesList(nextGuess);
   }
 
   return (
