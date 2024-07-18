@@ -33,7 +33,7 @@ function Game() {
 
   return (
     <>
-      <GuessResults />
+      <GuessResults guessesList={guessesList} />
       <GuessForm
         guess={guess}
         setGuess={setGuess}
